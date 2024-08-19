@@ -33,8 +33,7 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                userOrg = 'tubb'
+            release(MavenPublication) {            
                 groupId = 'com.tubb.smrv'
                 artifactId = 'swipemenu-recyclerview'
                 version = '1.0'
