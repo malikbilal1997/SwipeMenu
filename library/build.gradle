@@ -37,9 +37,7 @@ afterEvaluate {
                 groupId = 'com.tubb.smrv'
                 artifactId = 'swipemenu-recyclerview'
                 version = '1.0'
-                afterEvaluate {
-                    from components.release
-                }
+                from components.findByName('release')
             }
         }
     }
