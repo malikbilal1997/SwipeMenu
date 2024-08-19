@@ -30,16 +30,17 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:'+project.supportVersion
 }
 
-
-publishing {
-  publications {
-    release(MavenPublication) {
-      groupId = 'com.tubb.smrv'
-      artifactId = 'swipemenu-recyclerview'
-      version = '1.0'
-      afterEvaluate {
-        from components.release
-      }
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.tubb.smrv'
+                artifactId = 'swipemenu-recyclerview'
+                version = '1.0'
+                afterEvaluate {
+                    from components.release
+                }
+            }
+        }
     }
-  }
 }
