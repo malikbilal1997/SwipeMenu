@@ -30,6 +30,12 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:'+project.supportVersion
 }
 
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
 afterEvaluate {
     publishing {
         publications {
@@ -38,6 +44,13 @@ afterEvaluate {
                 artifactId = 'swipemenu-recyclerview'
                 version = '1.0'
                 from components.findByName('release')
+                artifact(sourceJar)
+                artifact("$buildDir/outputs/aar/release.aar")
+            }
+        }
+        repositories {
+            maven {
+                url "$buildDir/repo"
             }
         }
     }
