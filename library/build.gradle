@@ -24,6 +24,12 @@ android {
 
 }
 
+android.libraryVariants.all { variant ->
+    variant.variantData.outputFactory.output.apkDatas.each { apkData ->
+        apkData.outputFileName = "swipemenu.aar"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:'+project.supportVersion
@@ -45,7 +51,7 @@ afterEvaluate {
                 version = '1.0'
                 from components.findByName('release')
                 artifact(sourceJar)
-                artifact("$buildDir/outputs/aar/release.aar")
+                artifact("$buildDir/outputs/aar/swipemenu.aar")
             }
         }
         repositories {
